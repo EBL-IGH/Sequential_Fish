@@ -1,14 +1,20 @@
-big_fish_reloaded>=0.6.2
-czifile==2019.7.2.1
-magicgui==0.10.1
-matplotlib==3.10.8
-napari[Pyside]>=0.6.6
-numpy==2.4.2
-pandas==3.0.0
-smfishtools==0.1.0
-smfishtools.egg==info
-scikit_learn==1.8.0
-scipy==1.17.0
-skimage==0.0
-tqdm==4.67.1
+big_fish_reloaded>=0.6.3
+AF-eraser >= 0.1.0
+czifile == 2026.8.16
+magicgui >= 0.10.2
+matplotlib >= 3.11.2
+napari[PySide] >= 0.9.1
+numpy >= 2.5.3
+pandas >= 3.0.5
+smfishtools>=0.2.2
+scikit-image >= 0.26.0
+scikit-learn>=1.9.1
+scipy >= 1.18.1
+tqdm >= 4.70.1
 pebble
+openpyxl >= 3.1.5
+ome_types
+lxml >= 6.1.3
+prince >= 0.20.2
+igraph >= 1.0.0
+leidenalg >= 0.12.0

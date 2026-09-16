@@ -1,3 +1,3 @@
 import os
 
-__version__ = "1.2.1b0"
+__version__ = "1.2.2"

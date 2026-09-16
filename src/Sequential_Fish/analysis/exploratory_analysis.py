@@ -727,7 +727,8 @@ def _sanity_metrics(data : pd.DataFrame) :
 def _compute_partial_correlation(
         data : pd.DataFrame,
         covariates : list[str],
-        remove_covariates_from_interest_genes = False
+        remove_covariates_from_interest_genes = False,
+        return_p_values = False
 ) :
 
     if remove_covariates_from_interest_genes and data.columns.to_list() == covariates :
@@ -741,7 +742,7 @@ def _compute_partial_correlation(
         interest_columns = data.columns.to_list()
     
     genes_combinations = list(combinations(interest_columns,r=2))
-    partial_corr_matrix = pd.concat([pg.partial_corr(
+    res = pd.concat([pg.partial_corr(
         data,
         x=x,
         y=y,
@@ -749,9 +750,14 @@ def _compute_partial_correlation(
     ) for x,y in genes_combinations], 
     ignore_index=True)
 
-    partial_corr_matrix["x"] = list(zip(*genes_combinations))[0]
-    partial_corr_matrix["y"] = list(zip(*genes_combinations))[1]
-    partial_corr_matrix = partial_corr_matrix.pivot(columns="x",index="y",values="r")
+    res["x"] = list(zip(*genes_combinations))[0]
+    res["y"] = list(zip(*genes_combinations))[1]
+    partial_corr_matrix = res.pivot(columns="x",index="y",values="r")
+
+    if return_p_values :
+        pvalues = res.pivot(columns="x",index="y",values="p_val")
+        return partial_corr_matrix, pvalues
+
 
     return partial_corr_matrix
 

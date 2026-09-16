@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "Sequential_Fish"
-version = "1.2.1b0"
+version = "1.2.2"
 authors = [
 	{ name="Slimani Floric", email="floric.slimani@live.fr" },
 ]
@@ -36,7 +36,7 @@ dependencies = [
 "lxml",
 "prince",
 "igraph",
-"leidenalg",
+"leidenalg"
 ]
 
 [project.urls]
